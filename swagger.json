@@ -1,0 +1,313 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "RamazanSonmez-NodeJS Rest Api endpoints of an application.",
+      "description": "Using the Nodejs/Express library and the PostgreSQL database, create a membership and order system that hosts the following Rest Api endpoints of an application.",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "tags": [
+      {
+        "name": "Order",
+        "description": "Create a Membership and order system "
+      }
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "paths": {
+      "/user/save": {
+        "post": {
+          "tags": [
+            "Users"
+          ],
+          "summary": "",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "model",
+              "in": "body",
+              "description": "user detail",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }
+        }
+      },
+      "/user/login": {
+        "post": {
+          "tags": [
+            "Users"
+          ],
+          "summary": "",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "model",
+              "in": "body",
+              "description": "user detail",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/UserLogin"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }
+        }
+      },
+      "/user": {
+        "get": {
+          "tags": [
+            "Users"
+          ],
+          "summary": "User list in system",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            },
+            "400": {
+              "description": "Failed. Bad post data."
+            }
+          }
+        }
+      },
+      "/user/logout": {
+        "get": {
+          "tags": [
+            "Users"
+          ],
+          "summary": "User list in system",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            },
+            "400": {
+              "description": "Failed. Bad post data."
+            }
+          }
+        }
+      },
+      "/order/save": {
+        "post": {
+          "tags": [
+            "Orders"
+          ],
+          "summary": "",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "model",
+              "in": "body",
+              "description": "order insert",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Order"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/Order"
+              }
+            }
+          }
+        }
+      },
+      "/order/list": {
+        "get": {
+          "tags": [
+            "Orders"
+          ],
+          "summary": "Order list",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/OrderList"
+              }
+            }
+          }
+        }
+      },
+      "/order/getorder/{id}": {
+        "get": {
+          "tags": [
+            "Orders"
+          ],
+          "summary": "Order Detail",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "description": "detail order id",
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/OrderDetail"
+              }
+            }
+          }
+        }
+      },
+      "/algorithm": {
+        "post": {
+          "tags": [
+            "Algorithm"
+          ],
+          "summary": "Algorithm",
+          "parameters": [
+            {
+              "name": "model",
+              "in": "body",
+              "description": "Find the most used character in a string.",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/algorithm"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/algorithm"
+              }
+            }
+          }
+        }
+      }
+    },
+    
+    "definitions": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "fullname": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "UserLogin": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "Order": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "OrderDetail": {
+        "type": "object",
+        "properties": {
+          "UserId": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "crateDate": {
+            "type": "null"
+          }
+        }
+      },
+      "OrderList": {
+        "type": "array",
+        "properties": {
+          "UserId": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "crateDate": {
+            "type": "null"
+          }
+        }
+      },
+      "algorithm": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "Cümleyi Giriniz."
+          }
+        }
+      }
+    }
+  }

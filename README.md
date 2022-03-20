@@ -1,5 +1,4 @@
-# order-project
-Create a Membership and order system
+# Create a Membership and order system
 =====================
 
 **Using the Nodejs/Express library and the PostgreSQL database, create a membership and order system that hosts the following Rest Api endpoints of an application.**
