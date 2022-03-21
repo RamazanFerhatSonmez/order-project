@@ -4,7 +4,8 @@
   "description": "Order App with Node js",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "db-created": "nodemon utils/db_created_table.js"
   },
   "repository": {
     "type": "git",

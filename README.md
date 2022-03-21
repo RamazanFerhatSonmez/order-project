@@ -20,6 +20,8 @@ cd order-project
 
 ```bash
 npm install
+npm run db-created //creates database and tables
+npm run start //creates database and tables
 ```
 ## .env file
 
