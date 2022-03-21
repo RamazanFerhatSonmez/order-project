@@ -20,6 +20,7 @@ cd order-project
 
 ```bash
 npm install
+npm start
 ```
 ## .env file
 
